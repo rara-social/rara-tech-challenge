@@ -14,11 +14,13 @@
 
 # misc
 .DS_Store
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+
+# check these in for tech challenge - (this is a bad practice, generally)
+# .env
+# .env.local
+# .env.development.local
+# .env.test.local
+# .env.production.local
 
 npm-debug.log*
 yarn-debug.log*
