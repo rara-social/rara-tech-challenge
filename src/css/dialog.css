@@ -1,0 +1,19 @@
+[data-reach-dialog-content] {
+  z-index: 0;
+  width: unset;
+  margin: 10vh 0.667rem;
+  background: white;
+  padding: 0.667rem 0.667rem 1rem;
+}
+
+@media only screen and (min-width: 424px) {
+  [data-reach-dialog-content] {
+    width: 400px;
+    margin: 10vh auto;
+  }
+}
+
+.icon {
+  height: 1em;
+  width: 1em;
+}

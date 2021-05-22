@@ -1,0 +1,74 @@
+{
+  "name": "rara-tech-challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/index.js",
+  "proxy": "http://localhost:8080",
+  "homepage": "https://rara.social",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "INLINE_RUNTIME_CHUNK=false react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "server": "node server/index.js",
+    "dev": "nodemon --inspect server/index.js",
+    "docker-build": "REACT_APP_BUILD_TIME=$(date +%s) react-scripts build && docker build . -t <repo>/<name> && docker push <repo>/<name>",
+    "ssh": "echo 'not setup'"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@ethersproject/providers": "^5.0.24",
+    "@reach/dialog": "^0.13.2",
+    "@reach/router": "^1.3.4",
+    "@reach/visually-hidden": "^0.13.2",
+    "big-number": "^2.0.0",
+    "bignumber.js": "^9.0.1",
+    "connect-mongodb-session": "^2.4.1",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "helmet": "^4.2.0",
+    "mongoose-bignumber": "^1.2.0",
+    "morgan": "^1.10.0",
+    "node-fetch": "^2.6.1",
+    "node-sass": "^5.0.0",
+    "nodemon": "^2.0.6",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "^4.0.1",
+    "react-spring": "^8.0.27",
+    "react-use-dimensions": "^1.2.1",
+    "socket.io": "^3.0.4",
+    "socket.io-client": "^3.0.4",
+    "web3": "^1.3.4",
+    "web3modal": "^1.9.3"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "nodemonConfig": {
+    "watch": [
+      "server/*"
+    ],
+    "delay": "2500",
+    "ext": "js json"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {}
+}
