@@ -1,11 +1,36 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+
+const Wrapper = styled.div`
+  background: black;
+  color: white;
+`;
+
+const H1 = styled.h1`
+  margin: 0;
+  padding: 1rem;
+`;
+
+const Table = styled.table`
+  padding: 1rem;
+  width: 100%;
+`;
+
+const TR = styled.tr`
+  text-align: center;
+
+  &:hover {
+    color: lightblue;
+    cursor: pointer;
+  }
+`;
 
 function LandingPage({}) {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('/api/leaderboard')
+    fetch("/api/leaderboard")
       .then((response) => {
         if (response.status !== 200) {
           throw Error(response.statusText);
@@ -22,10 +47,10 @@ function LandingPage({}) {
   }, []);
 
   return (
-    <div className='container'>
-      <h1>Leaderboard</h1>
+    <Wrapper>
+      <H1>Leaderboard</H1>
       {error ? <code>{error}</code> : null}
-      <table>
+      <Table>
         <thead>
           <th>Name</th>
           <th>Email</th>
@@ -36,22 +61,27 @@ function LandingPage({}) {
 
         <tbody>
           {data &&
-            data.map((user) => {
+            data.map((user, i) => {
               return (
-                <tr>
-                  <td>{user.first_name + ' ' + user.last_name}</td>
+                <TR
+                  key={`user-${i}`}
+                  onClick={() => {
+                    console.log(
+                      `Clicking on a row should navigate the user to ${user.first_name}'s Profile Page`
+                    );
+                  }}
+                >
+                  <td>{user.first_name + " " + user.last_name}</td>
                   <td>{user.email}</td>
                   <td>{user.publicAddress}</td>
                   <td>{user.ra_earned}</td>
                   <td>{user.ra_spent}</td>
-                </tr>
+                </TR>
               );
             })}
         </tbody>
-      </table>
-
-      {/* <code>{JSON.stringify({ data: data, error })}</code> */}
-    </div>
+      </Table>
+    </Wrapper>
   );
 }
 
