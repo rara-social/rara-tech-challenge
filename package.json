@@ -33,7 +33,7 @@
     "mongoose-bignumber": "^1.2.0",
     "morgan": "^1.10.0",
     "node-fetch": "^2.6.1",
-    "node-sass": "^5.0.0",
+    "node-sass": "^7.0.0",
     "nodemon": "^2.0.6",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
